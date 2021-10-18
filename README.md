@@ -4,7 +4,9 @@ Kanban App (Tutorial)
 
 <img alt="Godot3" src="https://img.shields.io/badge/-Godot 3.3.x-478CBF?style=for-the-badge&logo=godotengine&logoWidth=20&logoColor=white" />
 
-<img alt="app screenshot" src="https://cdn.discordapp.com/attachments/360062738615107605/898503529923215370/Kanban_Board_xB35FuWb0N.png">
+<a href="https://www.youtube.com/playlist?list=PL5t0hR7ADzumQ8eGjnMi6BrD7gzlg9o1r" target="_blank"><img alt="app screenshot" src="https://cdn.discordapp.com/attachments/360062738615107605/898503529923215370/Kanban_Board_xB35FuWb0N.png"></a>
+
+# [Watch Tutorial Playlist on Youtube](https://www.youtube.com/playlist?list=PL5t0hR7ADzumQ8eGjnMi6BrD7gzlg9o1r)
 
 Learning Outcomes
 --------------
