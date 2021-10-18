@@ -1,0 +1,23 @@
+[gd_resource type="Theme" load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/segoeui_20_r_dark.tres" type="DynamicFont" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[resource]
+default_font = ExtResource( 1 )
+HSeparator/constants/separation = 4
+HSeparator/styles/separator = SubResource( 1 )
+Label/colors/font_color = Color( 0.439216, 0.439216, 0.439216, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = null
+Label/styles/normal = null
+VSeparator/constants/separation = 4
+VSeparator/styles/separator = SubResource( 2 )

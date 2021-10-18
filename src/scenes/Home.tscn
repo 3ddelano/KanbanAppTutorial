@@ -1,0 +1,118 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/fonts/segoeui_20_r_dark.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/segoeui_20_b_dark.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/icons/settings_icon.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=2]
+
+[sub_resource type="Theme" id=3]
+default_font = ExtResource( 1 )
+HSeparator/constants/separation = 4
+HSeparator/styles/separator = SubResource( 1 )
+Label/colors/font_color = Color( 0.439216, 0.439216, 0.439216, 1 )
+Label/colors/font_color_shadow = Color( 0, 0, 0, 0 )
+Label/colors/font_outline_modulate = Color( 1, 1, 1, 1 )
+Label/constants/line_spacing = 3
+Label/constants/shadow_as_outline = 0
+Label/constants/shadow_offset_x = 1
+Label/constants/shadow_offset_y = 1
+Label/fonts/font = null
+Label/styles/normal = null
+VSeparator/constants/separation = 4
+VSeparator/styles/separator = SubResource( 2 )
+
+[node name="Home" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MC" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VB" type="VBoxContainer" parent="MC"]
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 1248.0
+margin_bottom = 688.0
+
+[node name="TopBar" type="HBoxContainer" parent="MC/VB"]
+margin_right = 1216.0
+margin_bottom = 28.0
+
+[node name="BoardName" type="Label" parent="MC/VB/TopBar"]
+margin_right = 74.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 2 )
+text = "Board 1"
+
+[node name="VSeparator" type="VSeparator" parent="MC/VB/TopBar"]
+margin_left = 78.0
+margin_right = 1039.0
+margin_bottom = 28.0
+size_flags_horizontal = 3
+
+[node name="AppName" type="Label" parent="MC/VB/TopBar"]
+margin_left = 1043.0
+margin_right = 1176.0
+margin_bottom = 28.0
+custom_fonts/font = ExtResource( 2 )
+text = "Kanban Board"
+
+[node name="VSeparator2" type="VSeparator" parent="MC/VB/TopBar"]
+margin_left = 1180.0
+margin_right = 1188.0
+margin_bottom = 28.0
+custom_constants/separation = 8
+
+[node name="SettingsBtn" type="TextureButton" parent="MC/VB/TopBar"]
+margin_left = 1192.0
+margin_right = 1216.0
+margin_bottom = 28.0
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
+texture_focused = ExtResource( 3 )
+stretch_mode = 5
+
+[node name="SC" type="ScrollContainer" parent="MC/VB"]
+margin_top = 32.0
+margin_right = 1216.0
+margin_bottom = 656.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VB" type="VBoxContainer" parent="MC/VB/SC"]
+margin_right = 1216.0
+margin_bottom = 624.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Columns" type="HBoxContainer" parent="MC/VB/SC/VB"]
+margin_right = 1216.0
+margin_bottom = 612.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HS" type="HSeparator" parent="MC/VB/SC/VB"]
+margin_top = 616.0
+margin_right = 1216.0
+margin_bottom = 624.0
+custom_constants/separation = 8
