@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://custom_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scripts/ColorLabel.gd" type="Script" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.894118, 0.215686, 0.215686, 1 )
+bg_color = Color( 0.960784, 0.207843, 0.0862745, 1 )
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
@@ -17,13 +18,15 @@ margin_bottom = 8.0
 rect_min_size = Vector2( 45, 8 )
 theme = ExtResource( 1 )
 custom_styles/panel = SubResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+color = Color( 0.960784, 0.207843, 0.0862745, 1 )
 
 [node name="MC" type="MarginContainer" parent="."]
 visible = false
-margin_right = 120.0
+margin_right = 124.0
 margin_bottom = 36.0
 custom_constants/margin_right = 16
 custom_constants/margin_top = 4
@@ -33,7 +36,7 @@ custom_constants/margin_bottom = 4
 [node name="Label" type="Label" parent="MC"]
 margin_left = 16.0
 margin_top = 4.0
-margin_right = 104.0
+margin_right = 108.0
 margin_bottom = 32.0
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Important"
+text = "sdddads"
