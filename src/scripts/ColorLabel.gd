@@ -17,7 +17,13 @@ func set_text(new_text: String):
 	emit_signal("on_update")
 
 func _init():
+	if Engine.is_editor_hint():
+		connect("on_update", self, "_on_update")
+
+func _ready():
+	_on_update()
 	connect("on_update", self, "_on_update")
+
 
 func _on_update():
 	var stylebox = colorlabel_stylebox.duplicate()

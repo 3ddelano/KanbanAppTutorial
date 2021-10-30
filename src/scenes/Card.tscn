@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://custom_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/icons/desc_icon.png" type="Texture" id=2]
+[ext_resource path="res://assets/icons/clock.png" type="Texture" id=3]
+[ext_resource path="res://scripts/Card.gd" type="Script" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+anti_aliasing_size = 2
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.560784, 0.917647, 0.431373, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+anti_aliasing_size = 2
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0.0980392 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+
+[node name="Card" type="PanelContainer"]
+margin_right = 28.0
+margin_bottom = 28.0
+rect_min_size = Vector2( 250, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 1 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MC" type="MarginContainer" parent="."]
+margin_right = 250.0
+margin_bottom = 60.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="VB" type="VBoxContainer" parent="MC"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 242.0
+margin_bottom = 52.0
+custom_constants/separation = 4
+
+[node name="Labels" type="HBoxContainer" parent="MC/VB"]
+margin_right = 234.0
+
+[node name="Title" type="Label" parent="MC/VB"]
+margin_top = 4.0
+margin_right = 234.0
+margin_bottom = 32.0
+text = "Test title"
+
+[node name="Desc" type="MarginContainer" parent="MC/VB"]
+visible = false
+margin_top = 36.0
+margin_right = 234.0
+margin_bottom = 62.0
+custom_constants/margin_top = 5
+custom_constants/margin_bottom = 5
+
+[node name="DescIcon" type="TextureRect" parent="MC/VB/Desc"]
+margin_top = 5.0
+margin_right = 234.0
+margin_bottom = 21.0
+texture = ExtResource( 2 )
+
+[node name="Time" type="PanelContainer" parent="MC/VB"]
+visible = false
+margin_top = 36.0
+margin_right = 105.0
+margin_bottom = 74.0
+size_flags_horizontal = 0
+custom_styles/panel = SubResource( 2 )
+
+[node name="MC" type="MarginContainer" parent="MC/VB/Time"]
+margin_right = 105.0
+margin_bottom = 38.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 5
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 5
+
+[node name="HB" type="HBoxContainer" parent="MC/VB/Time/MC"]
+margin_left = 8.0
+margin_top = 5.0
+margin_right = 97.0
+margin_bottom = 33.0
+
+[node name="ClockIcon" type="TextureRect" parent="MC/VB/Time/MC/HB"]
+margin_right = 21.0
+margin_bottom = 28.0
+texture = ExtResource( 3 )
+stretch_mode = 6
+
+[node name="TimeValue" type="Label" parent="MC/VB/Time/MC/HB"]
+margin_left = 29.0
+margin_right = 89.0
+margin_bottom = 28.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Dec 21"
+
+[node name="Overlay" type="ReferenceRect" parent="."]
+visible = false
+margin_right = 250.0
+margin_bottom = 60.0
+
+[node name="Panel" type="Panel" parent="Overlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/fonts/segoeui_20_r_dark.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/segoeui_20_b_dark.tres" type="DynamicFont" id=2]
 [ext_resource path="res://assets/icons/settings_icon.png" type="Texture" id=3]
 [ext_resource path="res://scenes/ColorLabel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Card.tscn" type="PackedScene" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=1]
 
@@ -151,8 +152,6 @@ size_flags_vertical = 3
 [node name="ColorLabel" parent="MC/VB/SC/VB/Columns" instance=ExtResource( 4 )]
 margin_right = 75.0
 margin_bottom = 36.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
 custom_styles/panel = SubResource( 4 )
 color = Color( 0.247059, 0.929412, 0.0705882, 1 )
 text = "hello"
@@ -161,8 +160,6 @@ text = "hello"
 margin_left = 83.0
 margin_right = 131.0
 margin_bottom = 36.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
 custom_styles/panel = SubResource( 5 )
 color = Color( 1, 0.396078, 0.290196, 1 )
 text = "hi"
@@ -171,8 +168,6 @@ text = "hi"
 margin_left = 139.0
 margin_right = 265.0
 margin_bottom = 36.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
 custom_styles/panel = SubResource( 6 )
 color = Color( 0.117647, 0.0705882, 0.929412, 1 )
 text = "completed"
@@ -181,11 +176,14 @@ text = "completed"
 margin_left = 273.0
 margin_right = 337.0
 margin_bottom = 36.0
-size_flags_horizontal = 0
-size_flags_vertical = 0
 custom_styles/panel = SubResource( 7 )
 color = Color( 0.870588, 0.921569, 0.172549, 1 )
 text = "test"
+
+[node name="Card" parent="MC/VB/SC/VB/Columns" instance=ExtResource( 5 )]
+margin_left = 345.0
+margin_right = 595.0
+margin_bottom = 60.0
 
 [node name="HS" type="HSeparator" parent="MC/VB/SC/VB"]
 margin_top = 612.0
