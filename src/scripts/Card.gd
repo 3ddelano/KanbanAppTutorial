@@ -51,3 +51,8 @@ func _on_update():
 		$MC/VB/Desc.visible = true
 	else:
 		$MC/VB/Desc.visible = false
+
+func from_data(data):
+	_data = data
+	emit_signal("on_update")
+
