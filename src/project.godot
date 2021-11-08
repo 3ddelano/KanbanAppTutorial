@@ -16,6 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
+GlobalSignals="*res://scripts/GlobalSignals.gd"
 Datastore="*res://scripts/Datastore.gd"
 
 [display]

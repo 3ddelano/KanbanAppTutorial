@@ -15,6 +15,7 @@ func set_data(new_data):
 func _ready():
 	_on_update()
 	connect("on_update", self, "_on_update")
+	$MC/VB/Button.connect("pressed", self, "_on_add_item_button_pressed")
 
 
 func _on_update():
@@ -36,3 +37,6 @@ func _on_update():
 		$MC/VB/Title.text = str(_data.name)
 	else:
 		$MC/VB/Title.text = "Untitled"
+
+func _on_add_item_button_pressed():
+	GlobalSignals.show_add_item(self)

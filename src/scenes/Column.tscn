@@ -104,6 +104,7 @@ margin_top = 188.0
 margin_right = 270.0
 margin_bottom = 226.0
 rect_min_size = Vector2( 0, 38 )
+mouse_default_cursor_shape = 2
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 2 )
 custom_styles/focus = SubResource( 3 )
@@ -112,6 +113,7 @@ custom_styles/normal = SubResource( 4 )
 [node name="MarginContainer" type="MarginContainer" parent="MC/VB/Button"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 1
 custom_constants/margin_right = 5
 custom_constants/margin_top = 5
 custom_constants/margin_left = 5
@@ -129,6 +131,7 @@ margin_bottom = 33.0
 [node name="TextureRect" type="TextureRect" parent="MC/VB/Button/MarginContainer/HBoxContainer"]
 margin_right = 24.0
 margin_bottom = 28.0
+mouse_filter = 2
 texture = ExtResource( 1 )
 stretch_mode = 6
 
