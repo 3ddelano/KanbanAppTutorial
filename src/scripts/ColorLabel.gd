@@ -2,6 +2,7 @@ tool
 extends PanelContainer
 
 signal on_update
+signal input_event(node, event)
 
 export var color: Color setget set_color
 export var text: String setget set_text
@@ -52,3 +53,22 @@ func _on_update():
 
 
 	add_stylebox_override("panel", stylebox)
+
+func set_clickable(val):
+	if val:
+		mouse_filter = MOUSE_FILTER_STOP
+		mouse_default_cursor_shape = CURSOR_POINTING_HAND
+		connect("gui_input", self, "_on_gui_input")
+	else:
+		mouse_filter = MOUSE_FILTER_PASS
+		mouse_default_cursor_shape = CURSOR_ARROW
+		disconnect("gui_input", self, "_on_gui_input")
+
+func _on_gui_input(event: InputEvent):
+	emit_signal("input_event", self, event)
+
+func get_data():
+	return {
+		"name": text,
+		"color": color
+	}

@@ -31,5 +31,6 @@ func _on_add_item_modal_visible(show, column):
 	if show:
 		add_item_modal.visible = true
 		add_item_modal.get_node("CC").reset()
+		add_item_modal.get_node("CC").column_to_add_to = column
 	else:
 		add_item_modal.visible = false

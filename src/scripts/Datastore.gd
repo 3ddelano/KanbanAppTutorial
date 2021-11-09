@@ -68,7 +68,7 @@ func load_board():
 func _ready():
 	load_board()
 
-func update_columns(new_column):
+func update_column(new_column):
 	var did_change = false
 	for column in _board.columns:
 		if column.id == new_column.id:

@@ -40,3 +40,16 @@ func _on_update():
 
 func _on_add_item_button_pressed():
 	GlobalSignals.show_add_item(self)
+
+
+func get_cards_container():
+	return $MC/VB/SC/HB/Cards
+
+func update_column():
+	_data.cards = []
+
+	for node in $MC/VB/SC/HB/Cards.get_children():
+		_data.cards.append(node._data)
+
+	if _data.has("id") and _data.id != "":
+		Datastore.update_column(_data)
