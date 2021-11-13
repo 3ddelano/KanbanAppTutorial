@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://assets/fonts/segoeui_20_r_dark.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/fonts/segoeui_20_b_dark.tres" type="DynamicFont" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/icons/close_icon.png" type="Texture" id=5]
 [ext_resource path="res://scripts/AddItemModal.gd" type="Script" id=6]
 [ext_resource path="res://scenes/ColorLabel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scripts/DropDelete.gd" type="Script" id=8]
 
 [sub_resource type="StyleBoxFlat" id=1]
 draw_center = false
@@ -193,6 +194,32 @@ corner_radius_bottom_left = 5
 corner_detail = 20
 anti_aliasing_size = 3
 
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0.890196, 0.94902, 0.227451, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0, 0, 0, 0.168627 )
+
+[sub_resource type="Animation" id=16]
+length = 0.15
+step = 0.15
+tracks/0/type = "value"
+tracks/0/path = NodePath("DeleteReference:rect_position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 100 ), Vector2( 0, 0 ) ]
+}
+
 [node name="Home" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -235,24 +262,25 @@ text = "Board 1"
 
 [node name="VSeparator" type="VSeparator" parent="MC/VB/TopBar"]
 margin_left = 82.0
-margin_right = 1027.0
+margin_right = 1059.0
 margin_bottom = 28.0
 size_flags_horizontal = 3
 
 [node name="AppName" type="Label" parent="MC/VB/TopBar"]
-margin_left = 1035.0
-margin_right = 1168.0
+margin_left = 1067.0
+margin_right = 1200.0
 margin_bottom = 28.0
 custom_fonts/font = ExtResource( 2 )
 text = "Kanban Board"
 
 [node name="VSeparator2" type="VSeparator" parent="MC/VB/TopBar"]
-margin_left = 1176.0
-margin_right = 1184.0
+margin_left = 1208.0
+margin_right = 1216.0
 margin_bottom = 28.0
 custom_constants/separation = 8
 
 [node name="SettingsBtn" type="TextureButton" parent="MC/VB/TopBar"]
+visible = false
 margin_left = 1192.0
 margin_right = 1216.0
 margin_bottom = 28.0
@@ -288,6 +316,7 @@ margin_bottom = 620.0
 custom_constants/separation = 8
 
 [node name="AddItemReference" type="ReferenceRect" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
@@ -311,10 +340,10 @@ __meta__ = {
 }
 
 [node name="PC" type="PanelContainer" parent="AddItemReference/CC"]
-margin_left = 460.0
-margin_top = 146.0
-margin_right = 820.0
-margin_bottom = 573.0
+margin_left = 640.0
+margin_top = 360.0
+margin_right = 640.0
+margin_bottom = 360.0
 custom_styles/panel = SubResource( 9 )
 
 [node name="MC" type="MarginContainer" parent="AddItemReference/CC/PC"]
@@ -447,3 +476,69 @@ custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Add"
+
+[node name="DeleteReference" type="ReferenceRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 100.0
+margin_bottom = 100.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="DeleteReference"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_constants/margin_right = 32
+custom_constants/margin_top = 32
+custom_constants/margin_left = 32
+custom_constants/margin_bottom = 32
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PanelContainer" type="PanelContainer" parent="DeleteReference/MarginContainer"]
+margin_left = 1086.0
+margin_top = 628.0
+margin_right = 1248.0
+margin_bottom = 688.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+custom_styles/panel = SubResource( 14 )
+script = ExtResource( 8 )
+
+[node name="MarginContainer" type="MarginContainer" parent="DeleteReference/MarginContainer/PanelContainer"]
+margin_right = 162.0
+margin_bottom = 60.0
+mouse_filter = 1
+custom_constants/margin_right = 16
+custom_constants/margin_top = 16
+custom_constants/margin_left = 16
+custom_constants/margin_bottom = 16
+
+[node name="Label" type="Label" parent="DeleteReference/MarginContainer/PanelContainer/MarginContainer"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 146.0
+margin_bottom = 44.0
+custom_colors/font_color = Color( 0.262745, 0.262745, 0.262745, 1 )
+text = "Drop to Delete"
+
+[node name="Overlay" type="ReferenceRect" parent="DeleteReference/MarginContainer/PanelContainer"]
+margin_right = 162.0
+margin_bottom = 60.0
+mouse_filter = 1
+
+[node name="Panel" type="Panel" parent="DeleteReference/MarginContainer/PanelContainer/Overlay"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+custom_styles/panel = SubResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/show_dropdelete = SubResource( 16 )
