@@ -32,6 +32,7 @@ corner_radius_bottom_left = 5
 margin_right = 28.0
 margin_bottom = 28.0
 rect_min_size = Vector2( 250, 60 )
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme = ExtResource( 1 )

@@ -44,6 +44,10 @@ func _on_update():
 	$MC/VB/Title.text = str(_data.title)
 
 	var labels_node = $MC/VB/Labels
+	for child in labels_node.get_children():
+		child.visible = false
+		child.queue_free()
+
 	for label in _data.labels:
 		# make a new label
 		var label_instance = _label_scene.instance()
